@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    image: sainathkathirvel/syntaxsage-backend:latest
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: syntaxsage_backend
+    restart: always
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:syntaxsage_db;DB_CLOSE_DELAY=-1
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=
+      - SPRING_DATASOURCE_DRIVERCLASSNAME=org.h2.Driver
+      - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.H2Dialect
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - GROQ_API_KEY=YOUR_GROQ_API_KEY_HERE
+      - GROQ_API_URL=https://api.groq.com/openai/v1/chat/completions
+    ports:
+      - "8080:8080"
+
+  frontend:
+    image: sainathkathirvel/syntaxsage-frontend:latest
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: syntaxsage_frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "80:80"

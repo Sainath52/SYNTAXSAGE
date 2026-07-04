@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "backend",
+      "name": "Backend (Java/Maven)"
+    },
+    {
+      "path": "frontend",
+      "name": "Frontend (React/TypeScript)"
+    }
+  ],
+  "settings": {
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "maven.executable.path": "C:\\apache-maven-3.9.6\\bin\\mvn.cmd",
+    "[java]": {
+      "editor.defaultFormatter": "redhat.java"
+    }
+  }
+}

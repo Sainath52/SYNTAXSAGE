@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/mentor")
-@CrossOrigin(origins = "*") // Frontend to Backend Network Error (CORS) varama thaduka
+@CrossOrigin(origins = "http://localhost:5173") // Frontend to Backend Network Error (CORS) varama thaduka
 public class CodeMentorController {
 
     private final CodeMentorService service;

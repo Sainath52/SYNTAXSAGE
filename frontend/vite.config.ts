@@ -9,7 +9,7 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'https://resilient-enthusiasm-production-cecd.up.railway.app',
         changeOrigin: true,
       },
     },
